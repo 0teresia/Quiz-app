@@ -66,22 +66,27 @@ const CreateQuizPage = () => {
           className="border rounded-md p-2 mb-2 w-full"
         />
         {question.options.map((option, optionIndex) => (
-          <div key={optionIndex} className="flex items-center mb-2">
-            <input
-              type="text"
-              value={option}
-              onChange={(e) => handleOptionChange(index, optionIndex, e)}
-              className="border rounded-md p-2 w-full mr-2"
-            />
-            <input
-              type="radio"
-              name={`correct-answer-${index + 1}`}
-              checked={question.correctAnswer === optionIndex}
-              onChange={() => handleCorrectAnswerChange(index, optionIndex)}
-              className="mr-2"
-            />
-            <label htmlFor={`correct-answer-${index + 1}-${optionIndex + 1}`}>Correct Answer</label>
-          </div>
+  <div key={optionIndex} className="flex items-center mb-2">
+    <input
+      type="text"
+      value={option}
+      onChange={(e) => handleOptionChange(index, optionIndex, e)}
+      className="border rounded-md p-2 w-full mr-2"
+    />
+    <input
+      type="radio"
+      name={`correct-answer-${index + 1}`}
+      checked={question.correctAnswer === optionIndex}
+      onChange={() => handleCorrectAnswerChange(index, optionIndex)}
+      className="mr-2"
+    />
+    <label
+      htmlFor={`correct-answer-${index + 1}-${optionIndex + 1}`}
+      style={{ whiteSpace: 'nowrap' }}
+    >
+      Correct Answer
+    </label>
+  </div>
         ))}
       </div>
     ));
